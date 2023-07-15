@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Doar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍏</text></svg>">
+    <style>
+        body {
+            background-color: #389149; //#238636
+            color: #fff;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+        }
+
+        img {
+            width: 30%;
+            -webkit-filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 13vh;
+            background-color: #1f5529;
+            color: #fff;
+            display: flex;
+            border-top: solid 5px #0f29144d;
+        }
+
+        .footer-left {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding-left: 1.8em;
+        }
+
+        .footer-right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 1.8em;
+        }
+
+        h1 {
+            font-weight: normal;
+            font-size: 1.8em;
+            margin: 0;
+            user-select: none;
+            -webkit-filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .social-widgets {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-widgets a {
+            margin: 0 2em;
+            padding: 1em;
+        }
+
+        .social-widgets i {
+            font-size: 2.8em;
+            color: white;
+            -webkit-filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .social-widgets a:hover {
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes loadingAnimation {
+            0% {
+                content: attr(data-text);
+            }
+
+            33% {
+                content: attr(data-text) attr(data-emoji1);
+            }
+
+            66% {
+                content: attr(data-text) attr(data-emoji1) attr(data-emoji2);
+            }
+
+            100% {
+                content: attr(data-text) attr(data-emoji1) attr(data-emoji2) attr(data-emoji3);
+            }
+        }
+
+        h1::after {
+            content: attr(data-text);
+            animation: loadingAnimation 2.5s infinite;
+        }
+
+        /* Media query for mobile devices */
+        @media only screen and (max-width: 800px) {
+
+            img {
+                width: 65% !important;
+                margin-bottom: 35%;
+            }
+
+            footer {
+                height: auto;
+                flex-direction: column;
+                background-color: transparent;
+                border: none;
+            }
+            h1 {
+                font-size: 1.4em;
+                margin-left: 5%;
+            }
+
+            .footer-left,
+            .footer-right {
+                padding: 0; /* Remove padding on both sides */
+                margin: 0.5em 0; /* Add margin for spacing between elements */
+            }
+
+            .social-widgets {
+                align-items: center;
+                text-align: center;
+                justify-content: center !important;
+            }
+
+            .social-widgets a {
+                font-size: 1.5em;
+                margin: 0.5em;
+            }
+
+            .footer-right {
+                justify-content: center;
+                background-color: #1f5529;
+                border-top: solid 5px #0f29144d;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <!-- <a href="#"> -->
+            <img src="https://i.ibb.co/9vcXz3K/comidavddbranco-2.png"/>
+        <!-- </a> -->
+
+        <footer>
+            <div class="footer-left">
+                <h1 id="loading-dots" data-text="󠀠󠀠󠀠🙌 site em construção 󠀠" data-emoji1="" data-emoji2=""
+                    data-emoji3=""></h1>
+            </div>
+            <div class="footer-right">
+                <div class="social-widgets">
+                    <a href="https://www.instagram.com/comidadeverdadeourinhos/" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/comidadeverdadeourinhos/" target="_blank" title="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://wa.me/5514997657989" target="_blank" title="Whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            function updateLoadingDots() {
+                const emojis = ["🥦", "🥕", "🥬", "🍅", "🥒", "🥑", "🥝", "🍓", "🍇", "🍉", "🍊", "🍌", "🍍", "🍎", "🍏", "🍐", "🍑", "🍒", "🥥", "🥭", "🍆", "🌽", "🍠", "🥔", "🥚", "🥗"];
+                const dotsElement = document.getElementById("loading-dots");
+
+                function getRandomEmoji() {
+                    const randomIndex = Math.floor(Math.random() * emojis.length);
+                    return emojis[randomIndex];
+                }
+
+                function updateEmojis() {
+                    const emoji1 = getRandomEmoji();
+                    const emoji2 = getRandomEmoji();
+                    const emoji3 = getRandomEmoji();
+                    dotsElement.setAttribute("data-emoji1", emoji1);
+                    dotsElement.setAttribute("data-emoji2", emoji2);
+                    dotsElement.setAttribute("data-emoji3", emoji3);
+                }
+
+                setInterval(updateEmojis, 2500); // Adjust the interval duration as needed
+            }
+
+            updateLoadingDots();
+        </script>
+    </main>
+</body>
+
+</html>
