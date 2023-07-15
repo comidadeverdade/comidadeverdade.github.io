@@ -16,7 +16,6 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-
             height: 90vh;
         }
 
@@ -56,7 +55,7 @@
             font-size: 1.8em;
             margin: 0;
             user-select: none;
-            -webkit-filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.3))
+            -webkit-filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.3));
         }
 
         .social-widgets {
@@ -73,7 +72,7 @@
         .social-widgets i {
             font-size: 2.8em;
             color: white;
-            -webkit-filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.3))
+            -webkit-filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.3));
         }
 
         .social-widgets a:hover {
@@ -107,19 +106,43 @@
         /* Media query for mobile devices */
         @media only screen and (max-width: 800px) {
             body {
-                font-size: 1.2em;
-                background-color: red;
+                font-size: 1.3em;
             }
 
-            .logo {
-                width: 95%;
+            img {
+                width: 60% !important;
             }
 
-            .social-icons {
-                display: block;
+            footer {
+                height: auto;
+                flex-direction: column;
+                background-color: transparent;
+                border: none;
+            }
+            h1 {
+                margin-left: 9%;
+            }
+
+            .footer-left,
+            .footer-right {
+                padding: 0; /* Remove padding on both sides */
+                margin: 0.5em 0; /* Add margin for spacing between elements */
+            }
+
+            .social-widgets {
+                align-items: center;
                 text-align: center;
-                margin-top: 1em;
-                font-size: 5em;
+                justify-content: center !important;
+            }
+
+            .social-widgets a {
+                margin: 0.5em;
+            }
+
+            .footer-right {
+                justify-content: center;
+                background-color: #1f5529;
+                border-top: solid 5px #0f29144d;
             }
         }
     </style>
